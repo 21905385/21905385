@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Flash</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var colors = ["black", "white", "red", "blue", "lime"];
+        var index = 0;
+        setInterval(function() {
+            document.body.style.backgroundColor = colors[index];
+            index++;
+            if (index >= colors.length) {
+                index = 0;
+            }
+        }, 200);
+    </script>
+</body>
+</html>

@@ -17,14 +17,19 @@
         alarmAudio.loop = true;
         alarmAudio.play();
 
+        var startTime = new Date().getTime();
+        var duration = 3 * 60 * 1000; // 3 minutes in milliseconds
+
         var intervalId = setInterval(function() {
             document.body.style.backgroundColor = colors[index];
             index++;
             if (index >= colors.length) {
                 index = 0;
             }
-            if (alarmAudio.ended) {
+            var currentTime = new Date().getTime();
+            if (currentTime - startTime >= duration) {
                 clearInterval(intervalId);
+                alarmAudio.pause();
             }
         }, 200);
     </script>

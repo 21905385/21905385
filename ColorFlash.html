@@ -13,11 +13,18 @@
     <script>
         var colors = ["black", "white", "red", "blue", "lime"];
         var index = 0;
-        setInterval(function() {
+        var alarmAudio = new Audio("alarm.wav");
+        alarmAudio.loop = true;
+        alarmAudio.play();
+
+        var intervalId = setInterval(function() {
             document.body.style.backgroundColor = colors[index];
             index++;
             if (index >= colors.length) {
                 index = 0;
+            }
+            if (alarmAudio.ended) {
+                clearInterval(intervalId);
             }
         }, 200);
     </script>
